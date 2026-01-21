@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: neuvector-microservices
+  namespace: argocd
+spec:
+  project: neuvector-poc
+  source:
+    repoURL: https://github.com/VETRI9876/argocd-neuvector.git
+    targetRevision: main
+    path: apps/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
