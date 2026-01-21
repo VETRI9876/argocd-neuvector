@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/VETRI9876/argocd-neuvector.git
     targetRevision: main
-    path: apps
+    path: argocd-neuvector/apps
     directory:
       recurse: true
   destination:
