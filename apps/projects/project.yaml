@@ -7,13 +7,17 @@ spec:
   sourceRepos:
     - https://github.com/VETRI9876/argocd-neuvector.git
   destinations:
-  - namespace: dev
-    server: https://kubernetes.default.svc
-  - namespace: argocd
-    server: https://kubernetes.default.svc
+    - namespace: dev
+      server: https://kubernetes.default.svc
+    - namespace: argocd
+      server: https://kubernetes.default.svc
   clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
+    - group: "*" # Allows Argo CD to manage cluster-wide resources (CRDs, ClusterRoles, Webhooks, etc.)
+      kind: "*"
+  namespaceResourceWhitelist: # Allows Argo CD to manage ONLY specific namespaced resources
+    - group: apps
+      kind: Deployment # Allows managing Kubernetes Deployments
+    - group: argoproj.io
+      kind: Application # Allows creating child Argo CD Applications
   orphanedResources:
     warn: true
-
