@@ -8,10 +8,7 @@ spec:
   source:
     repoURL: https://github.com/VETRI9876/argocd-neuvector.git
     targetRevision: main
-    path: apps/dev/workloads  
+    path: apps/dev/workloads
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
-  syncPolicy:
-    syncOptions:
-      - ApplyOutOfSyncOnly=true
