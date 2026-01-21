@@ -12,12 +12,10 @@ spec:
     - namespace: argocd
       server: https://kubernetes.default.svc
   clusterResourceWhitelist:
-    - group: "*" # Allows Argo CD to manage cluster-wide resources (CRDs, ClusterRoles, Webhooks, etc.)
+    - group: "*" 
       kind: "*"
-  namespaceResourceWhitelist: # Allows Argo CD to manage ONLY specific namespaced resources
-    - group: apps
-      kind: Deployment # Allows managing Kubernetes Deployments
-    - group: argoproj.io
-      kind: Application # Allows creating child Argo CD Applications
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
   orphanedResources:
     warn: true
